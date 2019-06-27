@@ -47,18 +47,23 @@
       "aksIngressIpAddresses": {
         "type": "array"
       },
-      "resourceGroup": {
-        "type": "string"
-      },
       "invalidHostForProbe": {
         "type": "string",
         "defaultValue": "host.never.exists.rr"
+      },
+      "shortName": {
+        "type": "string",
+        "metadata": {
+          "description": "Environment short nme used for resource group allocation"
+        }
       }
     },
     "variables": {
-      "vnetId": "[resourceId(parameters('resourceGroup'),'Microsoft.Network/virtualNetworks/', parameters('appgwVirtualNetworkName'))]",
+      "VirtualNetworkResourceGroup": "[concat('core-infra-',parameters('shortName'))]",
+      "VirtualNetworkName": "[concat('core-infra-vnet-',parameters('shortName'))]",
+      "VirtualNetworkSubnetName": "[concat('core-infra-subnet-appgw-',parameters('shortName'))]",
+      "SubnetResourceId": "[resourceId(variables('VirtualNetworkResourceGroup'),'Microsoft.Network/virtualNetworks/subnets',variables('VirtualNetworkName'),variables('VirtualNetworkSubnetName'))]",
       "publicIPRef": "",
-      "subnetRef": "[concat(variables('vnetId'), '/subnets/', parameters('appgwSubnetName'))]",
       "applicationGatewayID": "[resourceId('Microsoft.Network/applicationGateways', parameters('appgwName'))]"
     },
     "resources": [
@@ -80,7 +85,7 @@
               "name": "appGatewayIpConfig",
               "properties": {
                 "subnet": {
-                  "id": "[variables('subnetRef')]"
+                  "id": "[variables('SubnetResourceId')]"
                 }
               }
             }
