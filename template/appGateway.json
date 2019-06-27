@@ -37,9 +37,6 @@
         "type": "array",
         "defaultValue": []
       },
-      "appgwVirtualNetworkName": {
-        "type": "string"
-      },
       "aksIngressIpAddresses": {
         "type": "array"
       },
