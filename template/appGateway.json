@@ -29,10 +29,6 @@
         "type": "int",
         "defaultValue": 80
       },
-      "appgwSubnetName": {
-        "type": "string",
-        "defaultValue": "aks-appgw"
-      },
       "enableHttp2": {
         "type": "bool",
         "defaultValue": true
@@ -95,7 +91,7 @@
               "name": "appGatewayFrontendIP",
               "properties": {
                 "subnet": {
-                  "id": "[variables('subnetRef')]"
+                  "id": "[variables('SubnetResourceId')]"
                 }
               }
             }
