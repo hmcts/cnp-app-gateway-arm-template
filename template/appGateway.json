@@ -37,9 +37,8 @@
         "type": "array",
         "defaultValue": []
       },
-      "backendIpAddresses": {
-        "type": "array",
-        "defaultValue": []
+      "backendIpAddress": {
+        "type": "string"
       },
       "invalidHostForProbe": {
         "type": "string",
@@ -124,10 +123,11 @@
             {
               "name": "appGatewayBackendPool",
               "properties": {
-                "BackendAddresses": "[parameters('backendIpAddresses')]"
-              }
-            }
-          ],
+                "BackendAddresses": [
+                  {
+                    "IpAddress": "[parameters('backendIpAddress')]"
+                  }
+              ],
           "backendHttpSettingsCollection": [
             {
               "name": "appGatewayBackendHttpSettings",
