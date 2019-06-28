@@ -127,7 +127,10 @@
                   {
                     "IpAddress": "[parameters('backendIpAddress')]"
                   }
-              ],
+                ]
+              }
+            }
+          ],
           "backendHttpSettingsCollection": [
             {
               "name": "appGatewayBackendHttpSettings",
