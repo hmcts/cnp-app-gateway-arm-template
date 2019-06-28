@@ -38,7 +38,8 @@
         "defaultValue": []
       },
       "backendIpAddresses": {
-        "type": "array"
+        "type": "array",
+        "defaultValue": []
       },
       "invalidHostForProbe": {
         "type": "string",
