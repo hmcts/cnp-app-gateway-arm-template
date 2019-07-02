@@ -56,7 +56,7 @@
       "VirtualNetworkName": "[concat('core-infra-vnet-',parameters('shortName'))]",
       "VirtualNetworkSubnetName": "[concat('core-infra-subnet-appgw-',parameters('shortName'))]",
       "SubnetResourceId": "[resourceId(variables('VirtualNetworkResourceGroup'),'Microsoft.Network/virtualNetworks/subnets',variables('VirtualNetworkName'),variables('VirtualNetworkSubnetName'))]",
-      "publicIPRef": "",
+      "publicIPRef": "[resourceId('Microsoft.Network/publicIPAddresses',variables('publicIPAddressName'))]",
       "applicationGatewayID": "[resourceId('Microsoft.Network/applicationGateways', parameters('appgwName'))]"
     },
     "resources": [
@@ -87,6 +87,9 @@
             {
               "name": "appGatewayFrontendIP",
               "properties": {
+                "PublicIPAddress": {
+                  "id": "[variables('publicIPRef')]"
+                },
                 "subnet": {
                   "id": "[variables('SubnetResourceId')]"
                 }
