@@ -102,9 +102,6 @@
               "properties": {
                 "PublicIPAddress": {
                   "id": "[variables('publicIPRef')]"
-                },
-                "subnet": {
-                  "id": "[variables('SubnetResourceId')]"
                 }
               }
             }
