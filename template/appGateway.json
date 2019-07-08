@@ -77,6 +77,9 @@
         "location": "[parameters('location')]",
         "zones": "[parameters('zones')]",
         "comments": "probes.host is set to host.never.exists.rr so that it is invalid so that traefik will ignore the hostname and pick default one",
+        "dependsOn": [
+          "[resourceId('Microsoft.Network/publicIPAddresses', variables('publicIPAddressName'))]"
+        ],
         "properties": {
           "sku": {
             "name": "[parameters('skuSize')]",
