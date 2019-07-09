@@ -15,7 +15,7 @@
       },
       "skuSize": {
         "type": "string",
-        "defaultValue": "Standard_Medium"
+        "defaultValue": "Standard_v2"
       },
       "capacity": {
         "type": "int",
