@@ -11,7 +11,7 @@
       },
       "tier": {
         "type": "string",
-        "defaultValue": "Standard"
+        "defaultValue": "Standard_v2"
       },
       "skuSize": {
         "type": "string",
