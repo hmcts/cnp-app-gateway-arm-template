@@ -11,11 +11,11 @@
       },
       "tier": {
         "type": "string",
-        "defaultValue": "Standard_v2"
+        "defaultValue": "Standard"
       },
       "skuSize": {
         "type": "string",
-        "defaultValue": "Standard_v2"
+        "defaultValue": "Standard_Medium"
       },
       "capacity": {
         "type": "int",
