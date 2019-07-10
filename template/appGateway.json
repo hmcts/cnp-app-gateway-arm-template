@@ -11,11 +11,11 @@
       },
       "tier": {
         "type": "string",
-        "defaultValue": "Standard"
+        "defaultValue": "WAF"
       },
       "skuSize": {
         "type": "string",
-        "defaultValue": "Standard_Medium"
+        "defaultValue": "WAF_Medium"
       },
       "capacity": {
         "type": "int",
