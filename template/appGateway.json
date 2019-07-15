@@ -21,13 +21,17 @@
         "type": "int",
         "defaultValue": 2
       },
-      "autoScaleMaxCapacity": {
-        "type": "int",
-        "defaultValue": 10
+      "certData": {
+        "type": "string",
+        "metadata": {
+          "description": "Base-64 encoded form of the .pfx file"
+        }
       },
-      "frontEndPort": {
-        "type": "int",
-        "defaultValue": 80
+      "certPassword": {
+        "type": "securestring",
+        "metadata": {
+          "description": "Password for .pfx certificate"
+        }
       },
       "enableHttp2": {
         "type": "bool",
@@ -86,6 +90,15 @@
             "tier": "[parameters('tier')]",
             "capacity": "[parameters('capacity')]"
           },
+          "sslCertificates": [
+            {
+              "name": "appGatewaySslCert",
+              "properties": {
+                "data": "[parameters('certData')]",
+                "password": "[parameters('certPassword')]"
+              }
+            }
+          ],
           "gatewayIPConfigurations": [
             {
               "name": "appGatewayIpConfig",
@@ -110,7 +123,7 @@
             {
               "name": "appGatewayFrontendPort",
               "properties": {
-                "Port": 80
+                "Port": 443
               }
             }
           ],
@@ -193,8 +206,7 @@
               }
             }
           ],
-          "enableHttp2": "[parameters('enableHttp2')]",
-          "sslCertificates": []
+          "enableHttp2": "[parameters('enableHttp2')]"
         }
       }
     ]
