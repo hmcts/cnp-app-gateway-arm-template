@@ -223,7 +223,7 @@
           },
           "webApplicationFirewallConfiguration": {
             "enabled": true,
-            "firewallMode": "Detection",
+            "firewallMode": "Prevention",
             "ruleSetType": "OWASP",
             "ruleSetVersion": "3.0",
             "disabledRuleGroups": [],
