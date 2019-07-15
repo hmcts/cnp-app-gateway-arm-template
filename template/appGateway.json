@@ -184,8 +184,10 @@
                 "FrontendPort": {
                   "Id": "[concat(variables('applicationGatewayID'), '/frontendPorts/appGatewayFrontendPort')]"
                 },
-                "Protocol": "Http",
-                "SslCertificate": null
+                "Protocol": "Https",
+                "SslCertificate": {
+                  "Id": "[concat(variables('applicationGatewayID'), '/sslCertificates/appGatewaySslCert')]"
+                }
               }
             }
           ],
