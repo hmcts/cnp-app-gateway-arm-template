@@ -17,7 +17,7 @@
         "type": "string",
         "defaultValue": "WAF_v2"
       },
-      "capacity": {
+      "minCapacity": {
         "type": "int",
         "defaultValue": 2
       },
@@ -90,9 +90,11 @@
         "properties": {
           "sku": {
             "name": "[parameters('skuSize')]",
-            "tier": "[parameters('tier')]",
-            "capacity": "[parameters('capacity')]"
+            "tier": "[parameters('tier')]"
           },
+          "autoscaleConfiguration":{
+            "minCapacity":"[parameters('minCapacity')]"
+         },
           "sslCertificates": [
             {
               "name": "appGatewaySslCert",
