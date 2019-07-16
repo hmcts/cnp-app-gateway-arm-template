@@ -11,11 +11,11 @@
       },
       "tier": {
         "type": "string",
-        "defaultValue": "WAF"
+        "defaultValue": "WAF_v2"
       },
       "skuSize": {
         "type": "string",
-        "defaultValue": "WAF_Medium"
+        "defaultValue": "WAF_v2"
       },
       "capacity": {
         "type": "int",
@@ -70,8 +70,11 @@
         "type": "Microsoft.Network/publicIPAddresses",
         "name": "[variables('publicIPAddressName')]",
         "location": "[parameters('location')]",
+        "sku":{
+          "name":"Standard"
+        },
         "properties": {
-          "publicIPAllocationMethod": "Dynamic"
+          "publicIPAllocationMethod": "Static"
         }
       },
       {
