@@ -283,10 +283,11 @@
             "ruleSetType": "OWASP",
             "ruleSetVersion": "3.0",
             "disabledRuleGroups": [],
+            "exclusions": [],
             "requestBodyCheck": true,
             "maxRequestBodySizeInKb": 128,
             "fileUploadLimitInMb": 100
-          },
+        },
           "enableHttp2": "[parameters('enableHttp2')]"
         }
       }
