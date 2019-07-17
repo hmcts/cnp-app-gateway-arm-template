@@ -53,7 +53,40 @@
         "metadata": {
           "description": "Environment short nme used for resource group allocation"
         }
-      }
+      },
+      "environmentName": {
+        "type": "string",
+        "metadata": {
+          "description": "Environment to be deployed in to."
+        }
+      },
+      "branch": {
+        "type": "string"
+      },
+      "managedBy": {
+        "type": "string"
+      },
+      "solutionOwner": {
+        "type": "string"
+      },
+      "activityName": {
+        "type": "string"
+      },
+      "dataClassification": {
+        "type": "string"
+      },
+      "automation": {
+        "type": "string"
+      },
+      "costCentre": {
+        "type": "string"
+      },
+      "environment": {
+        "type": "string"
+      },
+      "criticality": {
+        "type": "string"
+      }  
     },
     "variables": {
       "VirtualNetworkResourceGroup": "[concat('core-infra-',parameters('shortName'))]",
@@ -82,6 +115,18 @@
         "type": "Microsoft.Network/applicationGateways",
         "apiVersion": "2019-04-01",
         "location": "[parameters('location')]",
+        "tags": {
+          "EnvironmentName": "[parameters('environmentName')]",
+          "Branch": "[parameters('branch')]",
+          "managedBy": "[parameters('managedBy')]",
+          "solutionOwner": "[parameters('solutionOwner')]",
+          "activityName": "[parameters('activityName')]",
+          "dataClassification": "[parameters('dataClassification')]",
+          "automation": "[parameters('automation')]",
+          "costCentre": "[parameters('costCentre')]",
+          "environment": "[parameters('environment')]",
+          "criticality": "[parameters('criticality')]"
+        },
         "zones": "[parameters('zones')]",
         "comments": "probes.host is set to host.never.exists.rr so that it is invalid so that traefik will ignore the hostname and pick default one",
         "dependsOn": [
