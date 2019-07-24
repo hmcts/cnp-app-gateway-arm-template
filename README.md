@@ -4,11 +4,11 @@ This repository contains ARM (Azure Resource Manage) template to provision an Az
 
 Below are some of the characteristics of the Application Gateway.
 
-PublicIp: Statically Assigned.
-Version: V2.
-Networking: Deployed in to a dedicated subnet.
-FirewallMode: Prevention.
-OWASP: 3.0.
+* PublicIp: Statically Assigned.
+* Version: V2.
+* Networking: Deployed in to a dedicated subnet.
+* FirewallMode: Prevention.
+* OWASP: 3.0.
 
 
 ### Notes
